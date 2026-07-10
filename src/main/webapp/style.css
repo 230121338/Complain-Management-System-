@@ -4,9 +4,63 @@
 
 body {
     font-family: "Segoe UI", Arial, sans-serif;
-    background: #f0f2f5;
+    background: #eef2f7;
     margin: 0;
     color: #1a1a1a;
+}
+
+/* Full-height professional gradient used on the login / register screens */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    background-attachment: fixed;
+}
+
+.auth-page .login-card {
+    margin: 24px;
+}
+
+.subtitle {
+    color: #5b6b7b;
+    margin-top: 0;
+}
+
+.auth-switch {
+    margin: 18px 0 0;
+    font-size: 14px;
+    text-align: center;
+    color: #5b6b7b;
+}
+
+.auth-switch a {
+    color: #1f3a5f;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+}
+
+.success {
+    background: #e6f4ea;
+    color: #1e7e34;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 12px;
 }
 
 .topbar {

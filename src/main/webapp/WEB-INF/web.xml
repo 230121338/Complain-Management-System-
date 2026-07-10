@@ -8,6 +8,10 @@
         <servlet-class>tut.ac.za.complaint.servlet.LoginServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>tut.ac.za.complaint.servlet.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ComplaintServlet</servlet-name>
         <servlet-class>tut.ac.za.complaint.servlet.ComplaintServlet</servlet-class>
     </servlet>
@@ -27,6 +31,10 @@
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ComplaintServlet</servlet-name>
