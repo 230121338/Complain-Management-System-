@@ -4,9 +4,63 @@
 
 body {
     font-family: "Segoe UI", Arial, sans-serif;
-    background: #f0f2f5;
+    background: #eef2f7;
     margin: 0;
     color: #1a1a1a;
+}
+
+/* Full-height professional gradient used on the login / register screens */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    background-attachment: fixed;
+}
+
+.auth-page .login-card {
+    margin: 24px;
+}
+
+.subtitle {
+    color: #5b6b7b;
+    margin-top: 0;
+}
+
+.auth-switch {
+    margin: 18px 0 0;
+    font-size: 14px;
+    text-align: center;
+    color: #5b6b7b;
+}
+
+.auth-switch a {
+    color: #1f3a5f;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+}
+
+.success {
+    background: #e6f4ea;
+    color: #1e7e34;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 12px;
 }
 
 .topbar {
@@ -29,6 +83,27 @@ body {
     font-size: 14px;
 }
 
+.topbar .nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.topbar .nav a {
+    padding: 4px 2px;
+    border-bottom: 2px solid transparent;
+}
+
+.topbar .nav a:hover {
+    color: #fff;
+    border-bottom-color: #cfe0ff;
+}
+
+.topbar .nav a.active {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
 .container {
     max-width: 960px;
     margin: 28px auto;
@@ -44,7 +119,9 @@ body {
 }
 
 .login-card {
-    max-width: 360px;
+    width: 100%;
+    max-width: 460px;
+    padding: 40px 44px;
     margin: 80px auto;
 }
 
@@ -100,6 +177,39 @@ button:hover,
 
 .btn-green:hover {
     background: #248a3a;
+}
+
+.btn-red {
+    background: #b71c1c;
+}
+
+.btn-red:hover {
+    background: #cf2a2a;
+}
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-form input[type="text"] {
+    width: 240px;
+    margin-top: 0;
+}
+
+.search-form button,
+.search-form .btn {
+    margin-top: 0;
 }
 
 .menu a {

@@ -27,7 +27,10 @@
 <body>
     <div class="topbar">
         <h1>Complaint System &mdash; Employee</h1>
-        <a href="LogoutServlet">Logout</a>
+        <nav class="nav">
+            <a class="active" href="employeeHome.jsp">All Complaints</a>
+            <a href="LogoutServlet">Logout</a>
+        </nav>
     </div>
     <div class="container">
         <div class="card">
@@ -40,7 +43,7 @@
                     <tr>
                         <th>Student</th>
                         <th>Complaint</th>
-                        <th>Floor</th>
+                        <th>Block</th>
                         <th>Room</th>
                         <th>Status</th>
                         <th>Action</th>

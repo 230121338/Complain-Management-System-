@@ -8,6 +8,10 @@
         <servlet-class>tut.ac.za.complaint.servlet.LoginServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>tut.ac.za.complaint.servlet.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ComplaintServlet</servlet-name>
         <servlet-class>tut.ac.za.complaint.servlet.ComplaintServlet</servlet-class>
     </servlet>
@@ -20,6 +24,14 @@
         <servlet-class>tut.ac.za.complaint.servlet.FixComplaintServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>DownloadComplaintsServlet</servlet-name>
+        <servlet-class>tut.ac.za.complaint.servlet.DownloadComplaintsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteComplaintServlet</servlet-name>
+        <servlet-class>tut.ac.za.complaint.servlet.DeleteComplaintServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>tut.ac.za.complaint.servlet.LogoutServlet</servlet-class>
     </servlet>
@@ -27,6 +39,10 @@
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ComplaintServlet</servlet-name>
@@ -39,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>FixComplaintServlet</servlet-name>
         <url-pattern>/FixComplaintServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DownloadComplaintsServlet</servlet-name>
+        <url-pattern>/DownloadComplaintsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteComplaintServlet</servlet-name>
+        <url-pattern>/DeleteComplaintServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>

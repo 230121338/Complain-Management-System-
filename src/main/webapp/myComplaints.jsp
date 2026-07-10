@@ -27,7 +27,12 @@
 <body>
     <div class="topbar">
         <h1>Complaint System &mdash; Student</h1>
-        <a href="LogoutServlet">Logout</a>
+        <nav class="nav">
+            <a href="studentHome.jsp">Home</a>
+            <a href="complaint.jsp">New Complaint</a>
+            <a class="active" href="myComplaints.jsp">My Complaints</a>
+            <a href="LogoutServlet">Logout</a>
+        </nav>
     </div>
     <div class="container">
         <div class="card">
@@ -43,7 +48,7 @@
                 <table>
                     <tr>
                         <th>Complaint</th>
-                        <th>Floor</th>
+                        <th>Block</th>
                         <th>Room</th>
                         <th>Status</th>
                         <th>Date Reported</th>

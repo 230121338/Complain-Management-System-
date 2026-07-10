@@ -52,6 +52,28 @@ public class ComplaintDAO {
         }
     }
 
+    /** Complaints whose student name matches the search term, newest first. */
+    public List<Complaint> searchByStudentName(String term) throws SQLException {
+        String sql = baseSelect() + " WHERE u.fullname LIKE ? ORDER BY c.complaintId DESC";
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, "%" + term + "%");
+            try (ResultSet rs = ps.executeQuery()) {
+                return mapList(rs);
+            }
+        }
+    }
+
+    /** Permanently removes a complaint. */
+    public void delete(int complaintId) throws SQLException {
+        String sql = "DELETE FROM complaints WHERE complaintId = ?";
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, complaintId);
+            ps.executeUpdate();
+        }
+    }
+
     /** Marks a complaint as Viewed and stamps today's date. */
     public void markViewed(int complaintId) throws SQLException {
         String sql = "UPDATE complaints SET status = ?, viewedDate = CURDATE() WHERE complaintId = ?";

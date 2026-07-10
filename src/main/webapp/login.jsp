@@ -5,10 +5,15 @@
     <title>Complaint Management System - Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="auth-page">
     <div class="card login-card">
         <h2>Complaint System</h2>
-        <p>Please sign in to continue.</p>
+        <p class="subtitle">Please sign in to continue.</p>
+
+        <% String success = (String) request.getAttribute("success");
+           if (success != null) { %>
+            <div class="success"><%= success %></div>
+        <% } %>
 
         <% String error = (String) request.getAttribute("error");
            if (error != null) { %>
@@ -24,6 +29,8 @@
 
             <button type="submit">Login</button>
         </form>
+
+        <p class="auth-switch">Don't have an account? <a href="register.jsp">Create account</a></p>
     </div>
 </body>
 </html>
