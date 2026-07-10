@@ -83,6 +83,27 @@ select {
     font-size: 14px;
 }
 
+.topbar .nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.topbar .nav a {
+    padding: 4px 2px;
+    border-bottom: 2px solid transparent;
+}
+
+.topbar .nav a:hover {
+    color: #fff;
+    border-bottom-color: #cfe0ff;
+}
+
+.topbar .nav a.active {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
 .container {
     max-width: 960px;
     margin: 28px auto;
@@ -98,7 +119,9 @@ select {
 }
 
 .login-card {
-    max-width: 360px;
+    width: 100%;
+    max-width: 460px;
+    padding: 40px 44px;
     margin: 80px auto;
 }
 

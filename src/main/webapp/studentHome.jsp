@@ -16,7 +16,12 @@
 <body>
     <div class="topbar">
         <h1>Complaint System &mdash; Student</h1>
-        <a href="LogoutServlet">Logout</a>
+        <nav class="nav">
+            <a class="active" href="studentHome.jsp">Home</a>
+            <a href="complaint.jsp">New Complaint</a>
+            <a href="myComplaints.jsp">My Complaints</a>
+            <a href="LogoutServlet">Logout</a>
+        </nav>
     </div>
     <div class="container">
         <div class="card">

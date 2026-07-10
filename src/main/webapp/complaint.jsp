@@ -16,7 +16,12 @@
 <body>
     <div class="topbar">
         <h1>Complaint System &mdash; Student</h1>
-        <a href="LogoutServlet">Logout</a>
+        <nav class="nav">
+            <a href="studentHome.jsp">Home</a>
+            <a class="active" href="complaint.jsp">New Complaint</a>
+            <a href="myComplaints.jsp">My Complaints</a>
+            <a href="LogoutServlet">Logout</a>
+        </nav>
     </div>
     <div class="container">
         <div class="card">
@@ -31,7 +36,7 @@
                 <label for="complaint">Complaint</label>
                 <textarea id="complaint" name="complaint" required></textarea>
 
-                <label for="floor">Floor</label>
+                <label for="floor">Block</label>
                 <input type="text" id="floor" name="floor" required>
 
                 <label for="room">Room</label>
