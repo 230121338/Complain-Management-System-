@@ -28,6 +28,10 @@
         <servlet-class>tut.ac.za.complaint.servlet.DownloadComplaintsServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>DeleteComplaintServlet</servlet-name>
+        <servlet-class>tut.ac.za.complaint.servlet.DeleteComplaintServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>tut.ac.za.complaint.servlet.LogoutServlet</servlet-class>
     </servlet>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>DownloadComplaintsServlet</servlet-name>
         <url-pattern>/DownloadComplaintsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteComplaintServlet</servlet-name>
+        <url-pattern>/DeleteComplaintServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>

@@ -179,6 +179,39 @@ button:hover,
     background: #248a3a;
 }
 
+.btn-red {
+    background: #b71c1c;
+}
+
+.btn-red:hover {
+    background: #cf2a2a;
+}
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-form input[type="text"] {
+    width: 240px;
+    margin-top: 0;
+}
+
+.search-form button,
+.search-form .btn {
+    margin-top: 0;
+}
+
 .menu a {
     display: inline-block;
     margin-right: 12px;
