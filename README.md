@@ -82,3 +82,35 @@ ComplaintSystem
 
 4. **Deploy** `target/ComplaintSystem.war` to Tomcat 9 (Servlet 4 / `javax.servlet`)
    and open `http://localhost:8080/ComplaintSystem/login.jsp`.
+
+## Run with Docker (app + MySQL)
+
+The repo ships a `Dockerfile` (multi-stage build → Tomcat 9) and a
+`docker-compose.yml` that also starts MySQL and auto-loads `database/schema.sql`.
+
+```bash
+docker compose up --build
+# open http://localhost:8080/  (served at the root context)
+```
+
+`docker compose down -v` stops everything and removes the database volume.
+
+## Deploy to a cloud host
+
+Any host that can run a Docker image works. The image reads its database
+connection from `DB_URL`, `DB_USER`, `DB_PASSWORD`, and listens on `$PORT`
+(falls back to `8080`), so it fits Railway/Render/Fly.io out of the box.
+
+**Railway** (easiest all-in-one)
+1. New Project → *Deploy from GitHub repo* → pick this repo (it builds the `Dockerfile`).
+2. Add a **MySQL** plugin to the same project.
+3. On the app service, set variables:
+   `DB_URL=jdbc:mysql://<MYSQLHOST>:<MYSQLPORT>/<MYSQLDATABASE>?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC`,
+   `DB_USER=<MYSQLUSER>`, `DB_PASSWORD=<MYSQLPASSWORD>` (use the plugin's values).
+4. Load the schema once against the managed DB (`mysql ... < database/schema.sql`).
+
+**Render**: New → *Web Service* → Docker; add a MySQL (Render add-on or a free
+external DB such as Aiven), then set the same three env vars and load the schema.
+
+**Fly.io / Koyeb**: `fly launch` / deploy the Docker image, attach a MySQL, set
+the same env vars.
