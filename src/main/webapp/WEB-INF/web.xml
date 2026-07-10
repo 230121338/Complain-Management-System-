@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>tut.ac.za.complaint.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ComplaintServlet</servlet-name>
+        <servlet-class>tut.ac.za.complaint.servlet.ComplaintServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewComplaintServlet</servlet-name>
+        <servlet-class>tut.ac.za.complaint.servlet.ViewComplaintServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FixComplaintServlet</servlet-name>
+        <servlet-class>tut.ac.za.complaint.servlet.FixComplaintServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>tut.ac.za.complaint.servlet.LogoutServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ComplaintServlet</servlet-name>
+        <url-pattern>/ComplaintServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewComplaintServlet</servlet-name>
+        <url-pattern>/ViewComplaintServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FixComplaintServlet</servlet-name>
+        <url-pattern>/FixComplaintServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+</web-app>

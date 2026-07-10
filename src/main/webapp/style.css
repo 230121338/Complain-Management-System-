@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f0f2f5;
+    margin: 0;
+    color: #1a1a1a;
+}
+
+.topbar {
+    background: #1f3a5f;
+    color: #fff;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar h1 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.topbar a {
+    color: #cfe0ff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 960px;
+    margin: 28px auto;
+    padding: 0 16px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.login-card {
+    max-width: 360px;
+    margin: 80px auto;
+}
+
+h2 {
+    margin-top: 0;
+    color: #1f3a5f;
+}
+
+label {
+    display: block;
+    margin: 12px 0 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+button,
+.btn {
+    display: inline-block;
+    background: #1f3a5f;
+    color: #fff;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 12px;
+}
+
+button:hover,
+.btn:hover {
+    background: #2a4d7a;
+}
+
+.btn-green {
+    background: #1e7e34;
+}
+
+.btn-green:hover {
+    background: #248a3a;
+}
+
+.menu a {
+    display: inline-block;
+    margin-right: 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+th {
+    background: #eef2f8;
+}
+
+.status {
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.status-notfixed { background: #fdecea; color: #b71c1c; }
+.status-viewed   { background: #fff4e5; color: #8a5300; }
+.status-fixed    { background: #e6f4ea; color: #1e7e34; }
+
+.error {
+    background: #fdecea;
+    color: #b71c1c;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.empty {
+    color: #666;
+    font-style: italic;
+}
+
+.inline-form {
+    display: inline;
+}
