@@ -1,0 +1,34 @@
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: complaintdb
+      MYSQL_USER: complaint
+      MYSQL_PASSWORD: complaint123
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      # schema.sql runs automatically on first startup of an empty database
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot123"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_URL: "jdbc:mysql://db:3306/complaintdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
+      DB_USER: "complaint"
+      DB_PASSWORD: "complaint123"
+    ports:
+      - "8080:8080"
+
+volumes:
+  db_data:
