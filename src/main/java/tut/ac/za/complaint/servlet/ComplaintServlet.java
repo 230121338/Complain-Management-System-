@@ -37,7 +37,7 @@ public class ComplaintServlet extends HttpServlet {
         }
 
         String complaint = request.getParameter("complaint");
-        String floor = request.getParameter("floor");
+        String block = request.getParameter("block");
         String room = request.getParameter("room");
 
         if (complaint == null || complaint.trim().isEmpty()) {
@@ -49,7 +49,7 @@ public class ComplaintServlet extends HttpServlet {
         ImageData image = readImagePart(request, "image");
 
         try {
-            complaintDAO.insert(user.getUserId(), complaint.trim(), floor, room, image);
+            complaintDAO.insert(user.getUserId(), complaint.trim(), block, room, image);
         } catch (SQLException e) {
             throw new ServletException("Unable to save complaint", e);
         }

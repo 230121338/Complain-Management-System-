@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS complaints (
     complaintId  INT PRIMARY KEY AUTO_INCREMENT,
     studentId    INT,
     complaint    TEXT,
-    floor        VARCHAR(20),
+    block        VARCHAR(20),
     room         VARCHAR(20),
     status       VARCHAR(30),
     dateReported DATE,

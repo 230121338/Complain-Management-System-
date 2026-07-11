@@ -35,6 +35,14 @@
         <servlet-name>ProfileImageServlet</servlet-name>
         <servlet-class>tut.ac.za.complaint.servlet.ProfileImageServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>tut.ac.za.complaint.servlet.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DownloadComplaintsServlet</servlet-name>
+        <servlet-class>tut.ac.za.complaint.servlet.DownloadComplaintsServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -67,6 +75,14 @@
     <servlet-mapping>
         <servlet-name>ProfileImageServlet</servlet-name>
         <url-pattern>/ProfileImageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DownloadComplaintsServlet</servlet-name>
+        <url-pattern>/DownloadComplaintsServlet</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

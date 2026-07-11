@@ -8,7 +8,7 @@ public class Complaint {
     private int studentId;
     private String studentName;
     private String complaint;
-    private String floor;
+    private String block;
     private String room;
     private String status;
     private Date dateReported;
@@ -59,12 +59,12 @@ public class Complaint {
         this.complaint = complaint;
     }
 
-    public String getFloor() {
-        return floor;
+    public String getBlock() {
+        return block;
     }
 
-    public void setFloor(String floor) {
-        this.floor = floor;
+    public void setBlock(String block) {
+        this.block = block;
     }
 
     public String getRoom() {

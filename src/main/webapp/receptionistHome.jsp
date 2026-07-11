@@ -16,7 +16,11 @@
         response.sendRedirect("login.jsp");
         return;
     }
-    List<Complaint> complaints = new ComplaintDAO().findAll();
+    String query = request.getParameter("q");
+    boolean searching = query != null && !query.trim().isEmpty();
+    List<Complaint> complaints = searching
+            ? new ComplaintDAO().searchByStudentName(query.trim())
+            : new ComplaintDAO().findAll();
 %>
 <!DOCTYPE html>
 <html>
@@ -37,15 +41,27 @@
         <div class="card">
             <h2>All Complaints (View Only)</h2>
 
+            <div class="toolbar">
+                <form class="search-form" action="receptionistHome.jsp" method="get">
+                    <input type="text" name="q" placeholder="Search by student name"
+                           value="<%= searching ? query.trim().replace("\"", "&quot;") : "" %>">
+                    <button type="submit">Search</button>
+                    <% if (searching) { %>
+                        <a class="btn" href="receptionistHome.jsp">Clear</a>
+                    <% } %>
+                </form>
+                <a class="btn btn-green" href="DownloadComplaintsServlet<%= searching ? "?q=" + java.net.URLEncoder.encode(query.trim(), "UTF-8") : "" %>">Download PDF</a>
+            </div>
+
             <% if (complaints.isEmpty()) { %>
-                <p class="empty">There are no complaints.</p>
+                <p class="empty"><%= searching ? "No complaints match that student name." : "There are no complaints." %></p>
             <% } else { %>
                 <table>
                     <tr>
                         <th>Student</th>
                         <th>Complaint</th>
                         <th>Picture</th>
-                        <th>Floor</th>
+                        <th>Block</th>
                         <th>Room</th>
                         <th>Status</th>
                         <th>Viewed Date</th>
@@ -60,7 +76,7 @@
                                     <img class="complaint-thumb" src="ComplaintImageServlet?id=<%= c.getComplaintId() %>" alt="Complaint picture">
                                 </a>
                             </td>
-                            <td><%= c.getFloor() %></td>
+                            <td><%= c.getBlock() %></td>
                             <td><%= c.getRoom() %></td>
                             <td><span class="<%= badge(c.getStatus()) %>"><%= c.getStatus() %></span></td>
                             <td><%= c.getViewedDate() == null ? "-" : c.getViewedDate() %></td>

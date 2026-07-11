@@ -17,23 +17,23 @@ public class ComplaintDAO {
     public static final String STATUS_FIXED = "Fixed";
 
     /** Inserts a new complaint with status "Not Fixed" and today's report date. */
-    public void insert(int studentId, String complaint, String floor, String room) throws SQLException {
-        insert(studentId, complaint, floor, room, null);
+    public void insert(int studentId, String complaint, String block, String room) throws SQLException {
+        insert(studentId, complaint, block, room, null);
     }
 
     /**
      * Inserts a new complaint with an optional attached picture. Pass {@code null}
      * for {@code image} to store a complaint without a picture.
      */
-    public void insert(int studentId, String complaint, String floor, String room, ImageData image)
+    public void insert(int studentId, String complaint, String block, String room, ImageData image)
             throws SQLException {
-        String sql = "INSERT INTO complaints (studentId, complaint, floor, room, status, dateReported, image, imageType) "
+        String sql = "INSERT INTO complaints (studentId, complaint, block, room, status, dateReported, image, imageType) "
                 + "VALUES (?, ?, ?, ?, ?, CURDATE(), ?, ?)";
         try (Connection con = DBConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, studentId);
             ps.setString(2, complaint);
-            ps.setString(3, floor);
+            ps.setString(3, block);
             ps.setString(4, room);
             ps.setString(5, STATUS_NOT_FIXED);
             if (image != null && image.getData() != null && image.getData().length > 0) {
@@ -87,6 +87,18 @@ public class ComplaintDAO {
         }
     }
 
+    /** Complaints whose student name matches the query (case-insensitive), newest first. */
+    public List<Complaint> searchByStudentName(String query) throws SQLException {
+        String sql = baseSelect() + " WHERE u.fullname LIKE ? ORDER BY c.complaintId DESC";
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, "%" + query + "%");
+            try (ResultSet rs = ps.executeQuery()) {
+                return mapList(rs);
+            }
+        }
+    }
+
     /** Marks a complaint as Viewed and stamps today's date. */
     public void markViewed(int complaintId) throws SQLException {
         String sql = "UPDATE complaints SET status = ?, viewedDate = CURDATE() WHERE complaintId = ?";
@@ -111,7 +123,7 @@ public class ComplaintDAO {
 
     private String baseSelect() {
         return "SELECT c.complaintId, c.studentId, u.fullname AS studentName, c.complaint, "
-                + "c.floor, c.room, c.status, c.dateReported, c.viewedDate, c.fixedDate, "
+                + "c.block, c.room, c.status, c.dateReported, c.viewedDate, c.fixedDate, "
                 + "(c.image IS NOT NULL) AS hasImage "
                 + "FROM complaints c LEFT JOIN users u ON c.studentId = u.userId";
     }
@@ -130,7 +142,7 @@ public class ComplaintDAO {
         c.setStudentId(rs.getInt("studentId"));
         c.setStudentName(rs.getString("studentName"));
         c.setComplaint(rs.getString("complaint"));
-        c.setFloor(rs.getString("floor"));
+        c.setBlock(rs.getString("block"));
         c.setRoom(rs.getString("room"));
         c.setStatus(rs.getString("status"));
         c.setDateReported(rs.getDate("dateReported"));

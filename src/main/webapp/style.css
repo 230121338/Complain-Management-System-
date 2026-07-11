@@ -62,6 +62,7 @@ label {
 
 input[type="text"],
 input[type="password"],
+select,
 textarea {
     width: 100%;
     padding: 10px;
@@ -193,4 +194,49 @@ th {
     border-radius: 6px;
     border: 1px solid #e0e0e0;
     display: block;
+}
+
+.notice {
+    background: #e6f4ea;
+    color: #1e7e34;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.form-footer {
+    margin-top: 16px;
+    font-size: 14px;
+}
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 260px;
+}
+
+.search-form input[type="text"] {
+    max-width: 280px;
+    margin-top: 0;
+}
+
+.search-form button,
+.search-form .btn {
+    margin-top: 0;
+}
+
+.toolbar > .btn {
+    margin-top: 0;
 }
