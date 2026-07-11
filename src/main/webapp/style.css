@@ -103,6 +103,14 @@ button:hover,
     background: #248a3a;
 }
 
+.btn-red {
+    background: #b71c1c;
+}
+
+.btn-red:hover {
+    background: #c62828;
+}
+
 .menu a {
     display: inline-block;
     margin-right: 12px;

@@ -66,6 +66,7 @@
                         <th>Status</th>
                         <th>Viewed Date</th>
                         <th>Fixed Date</th>
+                        <th>Action</th>
                     </tr>
                     <% for (Complaint c : complaints) { %>
                         <tr>
@@ -81,6 +82,13 @@
                             <td><span class="<%= badge(c.getStatus()) %>"><%= c.getStatus() %></span></td>
                             <td><%= c.getViewedDate() == null ? "-" : c.getViewedDate() %></td>
                             <td><%= c.getFixedDate() == null ? "-" : c.getFixedDate() %></td>
+                            <td>
+                                <form class="inline-form" action="DeleteComplaintServlet" method="post"
+                                      onsubmit="return confirm('Delete this complaint permanently?');">
+                                    <input type="hidden" name="complaintId" value="<%= c.getComplaintId() %>">
+                                    <button type="submit" class="btn-red">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                     <% } %>
                 </table>

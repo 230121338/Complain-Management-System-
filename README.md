@@ -13,7 +13,7 @@ picture** shown in the navigation bar.
 |------|--------|
 | **Student** | Submit a complaint (complaint text, block, room, optional picture) and view own complaints + status |
 | **Employee** | View all complaints (with pictures), mark a complaint as *Viewed*, and mark it *Fixed* |
-| **Receptionist** | View all complaints (read-only) with pictures, **search by student name**, and **download a PDF** of the complaints with pictures embedded |
+| **Receptionist** | View all complaints with pictures, **search by student name**, **download a PDF** of the complaints with pictures embedded, and **delete** a complaint |
 
 ## Complaint status flow
 

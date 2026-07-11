@@ -99,6 +99,16 @@ public class ComplaintDAO {
         }
     }
 
+    /** Permanently removes a complaint. */
+    public void delete(int complaintId) throws SQLException {
+        String sql = "DELETE FROM complaints WHERE complaintId = ?";
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, complaintId);
+            ps.executeUpdate();
+        }
+    }
+
     /** Marks a complaint as Viewed and stamps today's date. */
     public void markViewed(int complaintId) throws SQLException {
         String sql = "UPDATE complaints SET status = ?, viewedDate = CURDATE() WHERE complaintId = ?";
