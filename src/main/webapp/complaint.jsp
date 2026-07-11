@@ -16,7 +16,11 @@
 <body>
     <div class="topbar">
         <h1>Complaint System &mdash; Student</h1>
-        <a href="LogoutServlet">Logout</a>
+        <div class="topbar-user">
+            <img class="avatar" src="ProfileImageServlet?id=<%= user.getUserId() %>" alt="Profile picture">
+            <span class="topbar-name"><%= user.getFullname() %></span>
+            <a href="LogoutServlet">Logout</a>
+        </div>
     </div>
     <div class="container">
         <div class="card">
@@ -27,15 +31,18 @@
                 <div class="error"><%= error %></div>
             <% } %>
 
-            <form action="ComplaintServlet" method="post">
+            <form action="ComplaintServlet" method="post" enctype="multipart/form-data">
                 <label for="complaint">Complaint</label>
                 <textarea id="complaint" name="complaint" required></textarea>
 
-                <label for="floor">Floor</label>
-                <input type="text" id="floor" name="floor" required>
+                <label for="block">Block</label>
+                <input type="text" id="block" name="block" required>
 
                 <label for="room">Room</label>
                 <input type="text" id="room" name="room" required>
+
+                <label for="image">Complaint Picture (optional)</label>
+                <input type="file" id="image" name="image" accept="image/*">
 
                 <button type="submit">Submit</button>
                 <a class="btn" href="studentHome.jsp">Back</a>

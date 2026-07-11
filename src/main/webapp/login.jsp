@@ -10,6 +10,11 @@
         <h2>Complaint System</h2>
         <p>Please sign in to continue.</p>
 
+        <% String message = (String) request.getAttribute("message");
+           if (message != null) { %>
+            <div class="notice"><%= message %></div>
+        <% } %>
+
         <% String error = (String) request.getAttribute("error");
            if (error != null) { %>
             <div class="error"><%= error %></div>
@@ -24,6 +29,8 @@
 
             <button type="submit">Login</button>
         </form>
+
+        <p class="form-footer">Don't have an account? <a href="register.jsp">Create one</a></p>
     </div>
 </body>
 </html>

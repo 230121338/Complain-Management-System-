@@ -27,9 +27,23 @@
 <body>
     <div class="topbar">
         <h1>Complaint System &mdash; Employee</h1>
-        <a href="LogoutServlet">Logout</a>
+        <div class="topbar-user">
+            <img class="avatar" src="ProfileImageServlet?id=<%= user.getUserId() %>" alt="Profile picture">
+            <span class="topbar-name"><%= user.getFullname() %></span>
+            <a href="LogoutServlet">Logout</a>
+        </div>
     </div>
     <div class="container">
+        <div class="card">
+            <h2>Profile Picture</h2>
+            <p>Add or change the picture shown in your navigation bar.</p>
+            <img class="avatar-large" src="ProfileImageServlet?id=<%= user.getUserId() %>" alt="Current profile picture">
+            <form action="ProfilePictureServlet" method="post" enctype="multipart/form-data">
+                <label for="profileImage">Choose a picture</label>
+                <input type="file" id="profileImage" name="profileImage" accept="image/*" required>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
         <div class="card">
             <h2>All Complaints</h2>
 
@@ -40,7 +54,8 @@
                     <tr>
                         <th>Student</th>
                         <th>Complaint</th>
-                        <th>Floor</th>
+                        <th>Picture</th>
+                        <th>Block</th>
                         <th>Room</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -49,7 +64,12 @@
                         <tr>
                             <td><%= c.getStudentName() %></td>
                             <td><%= c.getComplaint() %></td>
-                            <td><%= c.getFloor() %></td>
+                            <td>
+                                <a href="ComplaintImageServlet?id=<%= c.getComplaintId() %>" target="_blank">
+                                    <img class="complaint-thumb" src="ComplaintImageServlet?id=<%= c.getComplaintId() %>" alt="Complaint picture">
+                                </a>
+                            </td>
+                            <td><%= c.getBlock() %></td>
                             <td><%= c.getRoom() %></td>
                             <td><span class="<%= badge(c.getStatus()) %>"><%= c.getStatus() %></span></td>
                             <td>

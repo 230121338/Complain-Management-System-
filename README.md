@@ -5,11 +5,15 @@ JDBC and MySQL/MariaDB**, following the MVC pattern (Model + DAO + Servlet + JSP
 
 ## Roles
 
+Any visitor can **create an account** (student, employee or receptionist) from the
+login page and then sign in. Students and employees can also upload a **profile
+picture** shown in the navigation bar.
+
 | Role | Can do |
 |------|--------|
-| **Student** | Submit a complaint (complaint text, floor, room) and view own complaints + status |
-| **Employee** | View all complaints, mark a complaint as *Viewed*, and mark it *Fixed* |
-| **Receptionist** | View all complaints (read-only) including complaint, status, viewed date and fixed date |
+| **Student** | Submit a complaint (complaint text, block, room, optional picture) and view own complaints + status |
+| **Employee** | View all complaints (with pictures), mark a complaint as *Viewed*, and mark it *Fixed* |
+| **Receptionist** | View all complaints with pictures, **search by student name**, **download a PDF** of the complaints with pictures embedded, and **delete** a complaint |
 
 ## Complaint status flow
 
