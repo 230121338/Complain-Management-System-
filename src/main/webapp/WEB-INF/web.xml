@@ -23,6 +23,18 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>tut.ac.za.complaint.servlet.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProfilePictureServlet</servlet-name>
+        <servlet-class>tut.ac.za.complaint.servlet.ProfilePictureServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ComplaintImageServlet</servlet-name>
+        <servlet-class>tut.ac.za.complaint.servlet.ComplaintImageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProfileImageServlet</servlet-name>
+        <servlet-class>tut.ac.za.complaint.servlet.ProfileImageServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -43,6 +55,18 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfilePictureServlet</servlet-name>
+        <url-pattern>/ProfilePictureServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ComplaintImageServlet</servlet-name>
+        <url-pattern>/ComplaintImageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfileImageServlet</servlet-name>
+        <url-pattern>/ProfileImageServlet</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

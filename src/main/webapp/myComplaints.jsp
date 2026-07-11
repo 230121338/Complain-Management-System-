@@ -27,7 +27,11 @@
 <body>
     <div class="topbar">
         <h1>Complaint System &mdash; Student</h1>
-        <a href="LogoutServlet">Logout</a>
+        <div class="topbar-user">
+            <img class="avatar" src="ProfileImageServlet?id=<%= user.getUserId() %>" alt="Profile picture">
+            <span class="topbar-name"><%= user.getFullname() %></span>
+            <a href="LogoutServlet">Logout</a>
+        </div>
     </div>
     <div class="container">
         <div class="card">
@@ -43,6 +47,7 @@
                 <table>
                     <tr>
                         <th>Complaint</th>
+                        <th>Picture</th>
                         <th>Floor</th>
                         <th>Room</th>
                         <th>Status</th>
@@ -51,6 +56,11 @@
                     <% for (Complaint c : complaints) { %>
                         <tr>
                             <td><%= c.getComplaint() %></td>
+                            <td>
+                                <a href="ComplaintImageServlet?id=<%= c.getComplaintId() %>" target="_blank">
+                                    <img class="complaint-thumb" src="ComplaintImageServlet?id=<%= c.getComplaintId() %>" alt="Complaint picture">
+                                </a>
+                            </td>
                             <td><%= c.getFloor() %></td>
                             <td><%= c.getRoom() %></td>
                             <td><span class="<%= badge(c.getStatus()) %>"><%= c.getStatus() %></span></td>

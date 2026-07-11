@@ -14,8 +14,17 @@ public class Complaint {
     private Date dateReported;
     private Date viewedDate;
     private Date fixedDate;
+    private boolean hasImage;
 
     public Complaint() {
+    }
+
+    public boolean isHasImage() {
+        return hasImage;
+    }
+
+    public void setHasImage(boolean hasImage) {
+        this.hasImage = hasImage;
     }
 
     public int getComplaintId() {

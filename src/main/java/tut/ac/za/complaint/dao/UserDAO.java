@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import tut.ac.za.complaint.model.ImageData;
 import tut.ac.za.complaint.model.User;
 
 public class UserDAO {
@@ -23,6 +24,36 @@ public class UserDAO {
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     return map(rs);
+                }
+            }
+        }
+        return null;
+    }
+
+    /** Stores (or replaces) the profile picture for a user. */
+    public void updateProfileImage(int userId, ImageData image) throws SQLException {
+        String sql = "UPDATE users SET profileImage = ?, profileType = ? WHERE userId = ?";
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setBytes(1, image.getData());
+            ps.setString(2, image.getContentType());
+            ps.setInt(3, userId);
+            ps.executeUpdate();
+        }
+    }
+
+    /** Returns a user's profile picture, or {@code null} if none has been set. */
+    public ImageData findProfileImage(int userId) throws SQLException {
+        String sql = "SELECT profileImage, profileType FROM users WHERE userId = ?";
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, userId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    byte[] data = rs.getBytes("profileImage");
+                    if (data != null && data.length > 0) {
+                        return new ImageData(data, rs.getString("profileType"));
+                    }
                 }
             }
         }
