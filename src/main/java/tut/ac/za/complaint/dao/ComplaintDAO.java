@@ -16,14 +16,14 @@ public class ComplaintDAO {
     public static final String STATUS_FIXED = "Fixed";
 
     /** Inserts a new complaint with status "Not Fixed" and today's report date. */
-    public void insert(int studentId, String complaint, String floor, String room) throws SQLException {
-        String sql = "INSERT INTO complaints (studentId, complaint, floor, room, status, dateReported) "
+    public void insert(int studentId, String complaint, String block, String room) throws SQLException {
+        String sql = "INSERT INTO complaints (studentId, complaint, block, room, status, dateReported) "
                 + "VALUES (?, ?, ?, ?, ?, CURDATE())";
         try (Connection con = DBConnection.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, studentId);
             ps.setString(2, complaint);
-            ps.setString(3, floor);
+            ps.setString(3, block);
             ps.setString(4, room);
             ps.setString(5, STATUS_NOT_FIXED);
             ps.executeUpdate();
@@ -76,7 +76,7 @@ public class ComplaintDAO {
 
     private String baseSelect() {
         return "SELECT c.complaintId, c.studentId, u.fullname AS studentName, c.complaint, "
-                + "c.floor, c.room, c.status, c.dateReported, c.viewedDate, c.fixedDate "
+                + "c.block, c.room, c.status, c.dateReported, c.viewedDate, c.fixedDate "
                 + "FROM complaints c LEFT JOIN users u ON c.studentId = u.userId";
     }
 
@@ -94,7 +94,7 @@ public class ComplaintDAO {
         c.setStudentId(rs.getInt("studentId"));
         c.setStudentName(rs.getString("studentName"));
         c.setComplaint(rs.getString("complaint"));
-        c.setFloor(rs.getString("floor"));
+        c.setBlock(rs.getString("block"));
         c.setRoom(rs.getString("room"));
         c.setStatus(rs.getString("status"));
         c.setDateReported(rs.getDate("dateReported"));

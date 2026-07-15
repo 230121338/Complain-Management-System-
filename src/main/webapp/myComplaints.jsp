@@ -43,7 +43,7 @@
                 <table>
                     <tr>
                         <th>Complaint</th>
-                        <th>Floor</th>
+                        <th>Block</th>
                         <th>Room</th>
                         <th>Status</th>
                         <th>Date Reported</th>
@@ -51,7 +51,7 @@
                     <% for (Complaint c : complaints) { %>
                         <tr>
                             <td><%= c.getComplaint() %></td>
-                            <td><%= c.getFloor() %></td>
+                            <td><%= c.getBlock() %></td>
                             <td><%= c.getRoom() %></td>
                             <td><span class="<%= badge(c.getStatus()) %>"><%= c.getStatus() %></span></td>
                             <td><%= c.getDateReported() %></td>

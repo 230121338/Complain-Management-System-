@@ -28,7 +28,7 @@ public class ComplaintServlet extends HttpServlet {
         }
 
         String complaint = request.getParameter("complaint");
-        String floor = request.getParameter("floor");
+        String block = request.getParameter("block");
         String room = request.getParameter("room");
 
         if (complaint == null || complaint.trim().isEmpty()) {
@@ -37,8 +37,14 @@ public class ComplaintServlet extends HttpServlet {
             return;
         }
 
+        if (block == null || block.trim().isEmpty()) {
+            request.setAttribute("error", "Please enter the block.");
+            request.getRequestDispatcher("complaint.jsp").forward(request, response);
+            return;
+        }
+
         try {
-            complaintDAO.insert(user.getUserId(), complaint.trim(), floor, room);
+            complaintDAO.insert(user.getUserId(), complaint.trim(), block.trim(), room);
         } catch (SQLException e) {
             throw new ServletException("Unable to save complaint", e);
         }

@@ -31,8 +31,8 @@
                 <label for="complaint">Complaint</label>
                 <textarea id="complaint" name="complaint" required></textarea>
 
-                <label for="floor">Floor</label>
-                <input type="text" id="floor" name="floor" required>
+                <label for="block">Block</label>
+                <input type="text" id="block" name="block" placeholder="e.g. A, B, C" required>
 
                 <label for="room">Room</label>
                 <input type="text" id="room" name="room" required>
